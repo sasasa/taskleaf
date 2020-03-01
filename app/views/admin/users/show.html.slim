@@ -17,6 +17,9 @@ table.table.table-hover
       th= User.human_attribute_name(:admin)
       td= @user.admin? ? 'あり' : 'なし'
     tr
+      th= User.human_attribute_name(:locale)
+      td= @user.locale
+    tr
       th= User.human_attribute_name(:created_at)
       td= @user.created_at
     tr
