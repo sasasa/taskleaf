@@ -16,14 +16,17 @@
 
 require 'capybara/rspec'
 
-require 'selenium-webdriver'
-Selenium::WebDriver::Chrome::Service.driver_path = "/mnt/c/Code/taskleaf/chromedriver_win32/chromedriver.exe"
+# require 'selenium-webdriver'
+# Selenium::WebDriver::Chrome::Service.driver_path = "/mnt/c/Code/taskleaf/chromedriver_win32/chromedriver.exe"
 
 RSpec.configure do |config|
   config.before(:each, type: :system) do
+    
+    config.before(:all) do
+      FactoryBot.reload
+    end
 
-    driven_by :selenium_chrome_headless
-
+    # driven_by :selenium_chrome_headless
     # caps = Selenium::WebDriver::Remote::Capabilities.chrome("chromeOptions" => {
     #   "args" => %w(--headless --disable-gpu --no-sandbox)
     # })

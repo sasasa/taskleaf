@@ -1,11 +1,16 @@
 {
   "name": "taskleaf",
   "private": true,
+  "scripts": {
+    "start": "bin/webpack-dev-server  --watch-poll --poll=1000 --host=0.0.0.0 --hot --inline --progress --colors  --history-api-fallback",
+    "build": "webpack --progress --colors"
+  },
   "dependencies": {
     "@rails/actioncable": "^6.0.0",
     "@rails/activestorage": "^6.0.0",
     "@rails/ujs": "^6.0.0",
     "@rails/webpacker": "4.2.2",
+    "rails-ujs": "^5.2.4-1",
     "turbolinks": "^5.2.0"
   },
   "version": "0.1.0",
