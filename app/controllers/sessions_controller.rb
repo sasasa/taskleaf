@@ -1,7 +1,4 @@
 class SessionsController < ApplicationController
-  class MyCustomError < StandardError; end
-  rescue_from MyCustomError, with: show_custom_error_page
-
   skip_before_action :login_required
 
   def new
@@ -20,11 +17,6 @@ class SessionsController < ApplicationController
   def destroy
     reset_session
     redirect_to root_path, notice: 'ログアウトしました。'
-  end
-
-
-  def test
-    raise MyCustomError, "テストのためにカスタムエラーが起こりました！"
   end
 
   private

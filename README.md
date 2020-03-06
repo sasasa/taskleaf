@@ -1,4 +1,14 @@
 # README
+動かないとき
+```
+config/boot.rbをコメントアウト　# require 'bootsnap/setup'
+yarn install --check-files
+config/webpacker.ymlを修正　check_yarn_integrity: false
+```
+
+
+
+
 
 This README would normally document whatever steps are necessary to get the
 application up and running.
