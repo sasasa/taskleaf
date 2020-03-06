@@ -3,7 +3,7 @@ services:
   db:
     image: postgres
     volumes:
-      - pgdatavol:/var/lib/postgresql/data
+      - pgdatavol:/var/lib/postgresql/
     ports:
       - '5432:5432'
   chrome:
@@ -28,17 +28,17 @@ services:
     command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
     ports:
       - "3000:3000"
-    # environment:
-    #   WEBPACKER_DEV_SERVER_HOST: webpack-dev-server
-    # depends_on:
-    #   - webpack-dev-server
-  # webpack-dev-server:
-  #   <<: *backend
-  #   environment:
-  #     WEBPACKER_DEV_SERVER_HOST: 0.0.0.0
-  #   command: bash -c "bin/webpack-dev-server"
-  #   ports:
-  #     - 3035:3035
+    environment:
+      WEBPACKER_DEV_SERVER_HOST: webpack
+    depends_on:
+      - webpack
+  webpack:
+    <<: *backend
+    environment:
+      WEBPACKER_DEV_SERVER_HOST: 0.0.0.0
+    command: bash -c "bin/webpack-dev-server"
+    ports:
+      - 3035:3035
 volumes:
   pgdatavol:
   bundle:
