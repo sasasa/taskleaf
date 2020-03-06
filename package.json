@@ -10,8 +10,16 @@
     "@rails/activestorage": "^6.0.0",
     "@rails/ujs": "^6.0.0",
     "@rails/webpacker": "4.2.2",
+    "axios": "^0.19.2",
+    "babel-polyfill": "^6.26.0",
     "rails-ujs": "^5.2.4-1",
-    "turbolinks": "^5.2.0"
+    "turbolinks": "^5.2.0",
+    "vue": "^2.6.11",
+    "vue-eslint-parser": "^7.0.0",
+    "vue-loader": "^15.9.0",
+    "vue-router": "^3.1.6",
+    "vue-template-compiler": "^2.6.11",
+    "vuex": "^3.1.2"
   },
   "version": "0.1.0",
   "devDependencies": {
