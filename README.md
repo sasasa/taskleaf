@@ -6,6 +6,19 @@ yarn install --check-files
 config/webpacker.ymlを修正　check_yarn_integrity: false
 ```
 
+Rspecジェネレーター
+```
+bin/rails g rspec:model user
+bin/rails g factory_bot:model user
+bin/rails g rspec:controller tasks
+bin/rails g rspec:system users
+bin/rails g rspec:feature sign_up
+bin/rails g rspec:request projects_api
+bin/rails g rspec:job geocode_user
+bin/rails g rspec:mailer user_mailer
+
+```
+
 
 
 

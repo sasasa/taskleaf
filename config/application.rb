@@ -26,6 +26,7 @@ module Taskleaf
             helper_specs: false, 
             controller_specs: false, 
             routing_specs: false
+            # fixtures: false,
     end
   end
 end
