@@ -1,0 +1,22 @@
+h1 タスクの詳細
+
+.nav.justify-content-end
+  = link_to '一覧', projects_path, class: 'nav-link'
+
+table.table.table-hover
+  tbody
+    tr
+      th= Project.human_attribute_name(:id)
+      td= @project.id
+    tr
+      th= Project.human_attribute_name(:name)
+      td= @project.name
+    tr
+      th= Project.human_attribute_name(:created_at)
+      td= @project.created_at
+    tr
+      th= Project.human_attribute_name(:updated_at)
+      td= @project.updated_at
+
+= link_to '編集', edit_project_path, class: 'btn btn-primary mr-3'
+= link_to '削除', @project, method: :delete, data: { confirm: "プロジェクト「#{@project.name}」を削除します。よろしいですか？" }, class: 'btn btn-danger' 

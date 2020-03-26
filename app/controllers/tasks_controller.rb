@@ -10,6 +10,7 @@ class TasksController < ApplicationController
 
   def new
     @task = Task.new
+    @option_for_select = current_user.projects.map{|p|[p.name, p.id]}
   end
 
   def create
@@ -18,16 +19,22 @@ class TasksController < ApplicationController
     if @task.save
       redirect_to @task, notice: "タスク「#{@task.name}」を登録しました。"
     else
+      @option_for_select = current_user.projects.map{|p|[p.name, p.id]}
       render :new
     end
   end
 
   def edit
+    @option_for_select = current_user.projects.map{|p|[p.name, p.id]}
   end
 
   def update
-    @task.update!(task_params)
-    redirect_to tasks_url, notice: "タスク「#{@task.name}」を更新しました。"
+    if @task.update(task_params)
+      redirect_to tasks_url, notice: "タスク「#{@task.name}」を更新しました。"
+    else
+      @option_for_select = current_user.projects.map{|p|[p.name, p.id]}
+      render :edit
+    end
   end
 
   def destroy
@@ -37,7 +44,7 @@ class TasksController < ApplicationController
 
   private
   def task_params
-    params.require(:task).permit(:name, :description)
+    params.require(:task).permit(:name, :description, :project_id)
   end
 
   def set_task

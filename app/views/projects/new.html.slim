@@ -1,0 +1,6 @@
+h1 プロジェクトの新規登録
+
+.nav.justify-content-end
+  = link_to '一覧', projects_path, class: 'nav-link'
+
+= render partial: 'form', locals: { project: @project }

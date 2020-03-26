@@ -1,3 +1,8 @@
+```
+rails generate scaffold project name:string
+rails g migration add_project_id_to_tasks
+```
+
 # README
 動かないとき
 ```

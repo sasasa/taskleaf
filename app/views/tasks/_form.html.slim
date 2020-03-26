@@ -8,6 +8,9 @@
     = f.label :name
     = f.text_field :name, class: 'form-control', id: 'task_name'
   .form-group
+    = f.label :project_id
+    = f.select :project_id, option_for_select, { include_blank: '選択してください' }, class: 'form-control'
+  .form-group
     = f.label :description
     = f.text_area :description, rows: 5, class: 'form-control', id: 'task_description'
   = f.submit nil, class: 'btn btn-primary'

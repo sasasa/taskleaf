@@ -3,4 +3,4 @@ h1 タスクの新規登録
 .nav.justify-content-end
   = link_to '一覧', tasks_path, class: 'nav-link'
 
-= render partial: 'form', locals: { task: @task }
+= render partial: 'form', locals: { task: @task, option_for_select: @option_for_select }

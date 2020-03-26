@@ -1,0 +1,20 @@
+h1 Listing projects
+
+h1 プロジェクト一覧
+= link_to '新規登録', new_project_path, class: 'btn btn-primary'
+
+.mb-3
+table.table.table-hover
+  thead.thead-default
+    tr
+      th= Project.human_attribute_name(:name)
+      th= Project.human_attribute_name(:created_at)
+      th
+  tbody
+    - @projects.each do |project|
+      tr
+        td= link_to project.name, project
+        td= project.created_at
+        td
+          = link_to '編集', edit_project_path(project), class: 'btn btn-primary mr-3'
+          = link_to '削除', project, method: :delete, data: { confirm: "プロジェクト「#{project.name}」を削除します。よろしいですか？" }, class: 'btn btn-danger' 

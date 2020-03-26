@@ -1,0 +1,7 @@
+h1 プロジェクトの編集
+
+.nav.justify-content-end
+  = link_to '一覧', projects_path, class: 'nav-link'
+
+= render partial: 'form', locals: { project: @project }
+
