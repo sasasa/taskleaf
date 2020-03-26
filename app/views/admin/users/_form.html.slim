@@ -26,6 +26,4 @@
   .form-group
     = f.label :skill_ids, 'スキル'
     = f.select :skill_ids, grouped_options_for_select(skill_ids, init_ids), {}, class: 'form-control', multiple: true
-
-
   = f.submit '登録する', class: 'btn btn-primary'

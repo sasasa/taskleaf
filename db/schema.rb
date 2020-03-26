@@ -33,7 +33,7 @@ ActiveRecord::Schema.define(version: 2020_03_26_091159) do
   create_table "skills_users", force: :cascade do |t|
     t.bigint "skill_id"
     t.bigint "user_id"
-    t.integer "proficiency"
+    t.integer "proficiency", default: 0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["skill_id"], name: "index_skills_users_on_skill_id"

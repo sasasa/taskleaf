@@ -13,4 +13,14 @@ class User < ApplicationRecord
   def init_skill_ids
     skill_ids
   end
+
+  def setProficiency!(skills_user_params)
+    ActiveRecord::Base.transaction do
+      skills_user_params.each do |id, val|
+        skills_user = self.skills_users.find(id)
+        skills_user.proficiency = val[:proficiency]
+        skills_user.save!
+      end 
+    end
+  end
 end

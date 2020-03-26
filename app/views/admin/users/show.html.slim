@@ -21,7 +21,7 @@ table.table.table-hover
       td= @user.locale
     tr
       th= User.human_attribute_name(:skill)
-      td= @user.skills.map(&:name).join(',')
+      td= @user.skills.map{|skill| skill.name_and_proficiency(@user) }.join(',')
     tr
       th= User.human_attribute_name(:created_at)
       td= @user.created_at

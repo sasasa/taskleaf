@@ -50,6 +50,18 @@ class Admin::UsersController < ApplicationController
     redirect_to admin_users_url, notice: "ユーザー「#{@user.name}」を削除しました。"
   end
 
+  def edit_proficiency
+    @user = User.find(params[:id])
+    @skills_users = @user.skills_users
+  end
+
+  def update_proficiency
+    @user = User.find(params[:id])
+    @user.setProficiency!(params[:skills_user])
+    
+    redirect_to edit_proficiency_admin_user_path(@user)
+  end
+
   private
   def user_params
     params.require(:user).permit(:name, :email, :admin, :password, :password_confirmation, :locale, skill_ids: [])

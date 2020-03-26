@@ -1,0 +1,15 @@
+h1 ユーザーのスキル習熟度
+.nav.justify-content-end
+  = link_to '一覧', admin_users_path, class: 'nav-link'
+
+- if @user.errors.present?
+  ul#error_explanation
+    - @user.errors.full_messages.each do |message|
+      li= message
+      
+= form_tag(update_proficiency_admin_user_path(@user), method: :patch) do
+  - @skills_users.each do |skills_user|
+    .form-group
+      = label "skills_user[#{skills_user.id}]", :proficiency, "#{skills_user.skill.name}習熟度"
+      = number_field "skills_user[#{skills_user.id}]", :proficiency, value: skills_user.proficiency, class: 'form-control'
+  = submit_tag '登録する', class: 'btn btn-primary'

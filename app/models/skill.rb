@@ -1,8 +1,8 @@
 class Skill < ApplicationRecord
   include NameValidatable
   
-  has_many :users, through: :skills_users
   has_many :skills_users
+  has_many :users, through: :skills_users
 
 
   CATEGORY = {
@@ -26,5 +26,9 @@ class Skill < ApplicationRecord
       result[skill.category_name] << [skill.name, skill.id]
     end
     result
+  end
+
+  def name_and_proficiency(user)
+    name + "(#{self.skills_users.find_by(user_id: user.id).proficiency})"
   end
 end
