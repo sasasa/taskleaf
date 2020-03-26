@@ -12,6 +12,7 @@ html
       .navbar-brand Taskleaf
       ul.navbar-nav.ml-auto
         - if current_user
+          li.nav-item= link_to 'スキル一覧', skills_path, class: 'nav-link'
           li.nav-item= link_to 'プロジェクト一覧', projects_path, class: 'nav-link'
           li.nav-item= link_to 'タスク一覧', tasks_path, class: 'nav-link'
           - if current_user.admin?

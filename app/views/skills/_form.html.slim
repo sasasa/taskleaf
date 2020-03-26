@@ -1,0 +1,16 @@
+- if skill.errors.present?
+  ul#error_explanation
+    - skill.errors.full_messages.each do |message|
+      li= message
+
+= form_with model: skill, local: true do |f|
+  .form-group
+    = f.label :name
+    = f.text_field :name, class: 'form-control'
+  .form-group
+    = f.label :category
+    = f.select :category, options_for_select, { include_blank: '選択してください' }, class: 'form-control'
+  = f.submit nil, class: 'btn btn-primary'
+
+
+

@@ -20,6 +20,9 @@ table.table.table-hover
       th= User.human_attribute_name(:locale)
       td= @user.locale
     tr
+      th= User.human_attribute_name(:skill)
+      td= @user.skills.map(&:name).join(',')
+    tr
       th= User.human_attribute_name(:created_at)
       td= @user.created_at
     tr

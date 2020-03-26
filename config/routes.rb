@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  resources :skills
   get 'page/index'
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create' 
