@@ -83,6 +83,11 @@ RSpec.configure do |config|
   # config.filter_gems_from_backtrace("gem name")
 
   config.include SystemHelper, type: :system
+
+  # 各 example で読み込まれ、 activejob.queue_adapter を
+  # ActiveJob::QueueAdapter::TestAdapter にセットする
+  # perform_enqueued_jobs などのテストヘルパーが使えるようになる
+  config.include ActiveJob::TestHelper
 end
 
 
