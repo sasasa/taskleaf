@@ -19,7 +19,7 @@ class Skill < ApplicationRecord
     CATEGORY.invert
   end
 
-  def self.skill_ids
+  def self.skill_ids_group_by_category_name
     result = {}
     self.all.each do |skill|
       result[skill.category_name] = [] unless result[skill.category_name]
