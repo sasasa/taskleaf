@@ -89,6 +89,8 @@ describe 'タスク管理機能', type: :system  do
       context '新規作成画面で名称を入力したとき' do
         let(:task_name) { '新規作成のテストを書く' }
         it '正常に登録される' do
+          # 確認画面から遷移させるため
+          click_button '登録'
           expect(page).to have_selector '.alert-success', text: '新規作成のテストを書く'
         end
       end

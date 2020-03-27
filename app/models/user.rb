@@ -23,4 +23,8 @@ class User < ApplicationRecord
       end 
     end
   end
+
+  def projects_option_for_select
+    projects.map{|p|[p.name, p.id]}
+  end
 end

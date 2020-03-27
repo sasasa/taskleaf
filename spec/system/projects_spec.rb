@@ -4,6 +4,7 @@ RSpec.describe "Projects", type: :system do
   let(:user_a) { create(:user, name: 'ユーザーA', email: 'a@example.com') }
   let(:user_b) { create(:user, name: 'ユーザーB', email: 'b@example.com') }
   let!(:project_a) { create(:project, name: "初回プロジェクト", user: user_a) }
+  let!(:task_a) { create(:task, name: "初回タスク", user: user_a, project: project_a) }
 
   before do
     # ユーザーA or Bでログインする C
@@ -38,32 +39,61 @@ RSpec.describe "Projects", type: :system do
     
     before do
       visit new_project_path
-      fill_in '名称', with: project_name
+      fill_in 'プロジェクト名称', with: project_name
+      fill_in 'タスク名称', with: task_name
+      
       click_button '登録する'
     end
     
-    context '新規作成画面で名称を入力しないとき' do
-      let(:project_name) { '' }
-      it 'エラーとなる' do
-        within '#error_explanation' do
-          expect(page).to have_content '名称を入力してください'
+    context 'タスク名称を入力したとき' do
+      context '新規作成画面でプロジェクト名称を入力しないとき' do
+        let(:project_name) { '' }
+        let(:task_name) { 'タスク名' }
+        it 'エラーとなる' do
+          within '#error_explanation' do
+            expect(page).to have_content 'プロジェクト名称を入力してください'
+          end
+        end
+      end
+  
+      context '新規作成画面で重複したプロジェクト名称を入力したとき' do
+        let(:project_name) { '初回プロジェクト' }
+        let(:task_name) { 'タスク名' }
+        it 'エラーとなる' do
+          within '#error_explanation' do
+            expect(page).to have_content 'プロジェクト名称はすでに存在します'
+          end
+        end
+      end
+  
+      context '新規作成画面でプロジェクト名称を入力したとき' do
+        let(:project_name) { '次回プロジェクト' }
+        let(:task_name) { 'タスク名' }
+        it '正常に登録される' do
+          expect(page).to have_selector '.alert-success', text: 'プロジェクト「次回プロジェクト」を登録しました。'
+        end
+      end
+
+      context '新規作成画面で重複したタスク名称と正しいプロジェクト名称を入力したとき' do
+        let(:project_name) { '次回プロジェクト' }
+        let(:task_name) { '初回タスク' }
+        it 'エラーとなる' do
+          within '#error_explanation' do
+            expect(page).to have_content 'タスク名称はすでに存在します'
+          end
         end
       end
     end
 
-    context '新規作成画面で重複した名称を入力したとき' do
-      let(:project_name) { '初回プロジェクト' }
-      it 'エラーとなる' do
-        within '#error_explanation' do
-          expect(page).to have_content '名称はすでに存在します'
+    context 'タスク名称を入力しないとき' do
+      context '新規作成画面でプロジェクト名称を入力したとき' do
+        let(:project_name) { '次回プロジェクト' }
+        let(:task_name) { '' }
+        it 'エラーとなる' do
+          within '#error_explanation' do
+            expect(page).to have_content 'タスク名称を入力してください'
+          end
         end
-      end
-    end
-
-    context '新規作成画面で名称を入力したとき' do
-      let(:project_name) { '次回プロジェクト' }
-      it '正常に登録される' do
-        expect(page).to have_selector '.alert-success', text: 'プロジェクト「次回プロジェクト」を登録しました。'
       end
     end
   end
