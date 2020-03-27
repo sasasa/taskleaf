@@ -1,0 +1,24 @@
+inherit_from: .rubocop_todo.yml
+
+require:
+  - rubocop-rails
+  #- rubocop-rspec
+  
+AllCops:
+  Exclude:
+    - 'vendor/**/*'
+    - 'spec/fixtures/**/*'
+    - 'tmp/**/*'
+    - 'node_modules/**/*'
+    - 'db/schema.rb'
+    - 'spec/rails_helper.rb'
+    - 'spec/spec_helper.rb'
+    - 'spec/support/**/*'
+    - 'Gemfile'
+    - 'lib/tasks/*'
+    - 'app/jobs/application_job.rb'
+  TargetRubyVersion: 2.6
+AsciiComments:
+  Enabled: false
+  Style/TrailingCommaInArguments:
+  Enabled: false
