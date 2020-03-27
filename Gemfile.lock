@@ -125,6 +125,8 @@ GEM
     parser (2.7.0.5)
       ast (~> 2.4.0)
     pg (1.2.2)
+    polyamorous (2.3.2)
+      activerecord (>= 5.2.1)
     popper_js (1.16.0)
     public_suffix (4.0.3)
     puma (4.3.3)
@@ -164,6 +166,11 @@ GEM
       thor (>= 0.20.3, < 2.0)
     rainbow (3.0.0)
     rake (13.0.1)
+    ransack (2.3.2)
+      activerecord (>= 5.2.1)
+      activesupport (>= 5.2.1)
+      i18n
+      polyamorous (= 2.3.2)
     rb-fsevent (0.10.3)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
@@ -279,6 +286,7 @@ DEPENDENCIES
   puma (~> 4.1)
   rails (~> 6.0.2, >= 6.0.2.1)
   rails_autolink
+  ransack
   rspec-rails (~> 4.0.0.beta4)
   rubocop
   rubocop-rails
