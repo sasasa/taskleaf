@@ -15,6 +15,7 @@ class ProjectsController < ApplicationController
   # GET /projects/new
   def new
     @project = current_user.projects.new
+    @project.tasks.build
   end
 
   # GET /projects/1/edit
@@ -25,7 +26,7 @@ class ProjectsController < ApplicationController
   # POST /projects.json
   def create
     @project = current_user.projects.new(project_params)
-
+    @project.tasks.first.user = current_user
     if @project.save
       redirect_to @project, notice: "プロジェクト「#{@project.name}」を登録しました。"
     else
@@ -58,6 +59,6 @@ class ProjectsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def project_params
-      params.require(:project).permit(:name)
+      params.require(:project).permit(:name, tasks_attributes: [:name])
     end
 end

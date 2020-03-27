@@ -7,7 +7,7 @@ class User < ApplicationRecord
   has_many :tasks
   has_many :projects
 
-  has_many :skills_users
+  has_many :skills_users, dependent: :destroy
   has_many :skills, through: :skills_users
 
   def init_skill_ids

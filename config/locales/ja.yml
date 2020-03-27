@@ -7,12 +7,14 @@ ja:
     attributes:
       project: 
         id: ID
-        name: 名称
+        name: プロジェクト名称
         created_at: 登録日時
         updated_at: 更新日時
+      tasks:
+          name: "タスク名称"
       task: 
         id: ID
-        name: 名称
+        name: タスク名称
         project: プロジェクト
         project_id: プロジェクト
         description: 詳しい説明
