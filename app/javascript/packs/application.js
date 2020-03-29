@@ -33,16 +33,21 @@ Vue.use(VueRouter)
 
 Vue.config.productionTip = false
 
+
 document.addEventListener('DOMContentLoaded', () => {
-  new Vue({
-    el: '#app',
-    // store: store,
-    router,
-    render: (h) => h(App)
-  })
+  if (document.getElementById('app')){
+    new Vue({
+      el: '#app',
+      // store: store,
+      router,
+      render: (h) => h(App)
+    })
+  }
 })
 
 document.addEventListener('turbolinks:load', function() {
+  console.log('turbolinks:load');
+
   document.querySelectorAll('td').forEach(function(td) {
     td.addEventListener('mouseover', function(e) {
       e.currentTarget.style.backgroundColor = '#eff';
