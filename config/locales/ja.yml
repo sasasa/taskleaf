@@ -4,7 +4,14 @@ ja:
     models:
       task: タスク
       project: プロジェクト
+      skill: スキル
     attributes:
+      skill:
+        id: ID
+        name: スキル名
+        category: カテゴリ
+        created_at: 登録日時
+        updated_at: 更新日時
       project: 
         id: ID
         name: プロジェクト名称
