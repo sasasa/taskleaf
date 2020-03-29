@@ -1,0 +1,5 @@
+document.querySelector("#project-<%= @project.id %>").style.display = 'none';
+
+var message = document.createElement('p');
+message.innerText = "プロジェクト「<%= @project.name %>」を削除しました。残りのプロジェクトは<%= Project.count %>件です。";
+document.querySelector('table').insertAdjacentElement('beforebegin', message);

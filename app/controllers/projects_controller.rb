@@ -48,7 +48,7 @@ class ProjectsController < ApplicationController
   # DELETE /projects/1.json
   def destroy
     @project.destroy
-    redirect_to projects_url, notice: "プロジェクト「#{@project.name}」を削除しました。"
+    # redirect_to projects_url, notice: "プロジェクト「#{@project.name}」を削除しました。"
   end
 
   private
