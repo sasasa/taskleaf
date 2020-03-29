@@ -15,6 +15,7 @@ ja:
       task: 
         id: ID
         name: タスク名称
+        image: 画像
         project: プロジェクト
         project_id: プロジェクト
         description: 詳しい説明

@@ -1,9 +1,10 @@
 ```
-rails generate scaffold project name:string
-rails g scaffold skill name:string category:int
-rails g migration add_project_id_to_tasks
-rails g model skills_users skill:references user:references proficiency:integer
+bin/rails generate scaffold project name:string
+bin/rails g scaffold skill name:string category:int
+bin/rails g migration add_project_id_to_tasks
+bin/rails g model skills_users skill:references user:references proficiency:integer
 bin/rails g mailer TaskMailer
+bin/rails active_storage:install
 ```
 
 # README
