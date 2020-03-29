@@ -26,16 +26,15 @@ import Vuex from 'vuex'
 import VueRouter from 'vue-router';
 import App from '../app.vue'
 // import store from './store.js'
-import router from './router'
-
-Vue.use(Vuex)
-Vue.use(VueRouter)
-
-Vue.config.productionTip = false
+import router from '../router'
 
 
 document.addEventListener('DOMContentLoaded', () => {
   if (document.getElementById('app')){
+    Vue.use(Vuex)
+    Vue.use(VueRouter)
+    Vue.config.productionTip = false
+    
     new Vue({
       el: '#app',
       // store: store,

@@ -2,7 +2,7 @@
 <div class="footer">
   <h1>{{ msg }}</h1>
   <div class="message">
-    <h3>app/javascript/packs/imagesのロゴ</h3>
+    <h3>app/javascript/imagesのロゴ</h3>
     <img class="img" src="../images/logo.png" /><br>
     これはページ2です。<br>
     この中にスタイルをまとめて書いてね<br>
