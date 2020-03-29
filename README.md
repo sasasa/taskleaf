@@ -6,6 +6,7 @@ bin/rails g model skills_users skill:references user:references proficiency:inte
 bin/rails g mailer TaskMailer
 bin/rails active_storage:install
 bin/rails g kaminari:views bootstrap4
+bundle exec sidekiq
 ```
 
 # README

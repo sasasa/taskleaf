@@ -42,7 +42,7 @@ class TasksController < ApplicationController
     end
 
     if @task.save
-      TaskMailer.creation_email(@task, current_user).deliver_now
+      TaskMailer.creation_email(@task, current_user).deliver_later
       redirect_to @task, notice: "タスク「#{@task.name}」を登録しました。"
     else
       @option_for_select = current_user.projects_option_for_select
