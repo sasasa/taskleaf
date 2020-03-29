@@ -5,6 +5,7 @@ bin/rails g migration add_project_id_to_tasks
 bin/rails g model skills_users skill:references user:references proficiency:integer
 bin/rails g mailer TaskMailer
 bin/rails active_storage:install
+bin/rails g kaminari:views bootstrap4
 ```
 
 # README
